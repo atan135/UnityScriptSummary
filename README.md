@@ -6,12 +6,11 @@ Summary the unity script usaged
 ## UnityEngine
 
 * [Debug](#Debug)
-
 * [Hash128](#Hash128)
-
 * [Input](#Input)
-
 * [Ping](#Ping)
+* [Texture2D](#Texture2D)
+* [Time](#Time)
 
 
 
@@ -187,10 +186,6 @@ string hashStr = hs.ToString();
 
 ### Input
 
-
-
-
-
 ### Ping
 
 用于ping一个ip，仅限ip，url无效，开个协程算这个可能好点。
@@ -199,5 +194,112 @@ string hashStr = hs.ToString();
 Ping ping = new Ping(ip);
 while(!ping.isDone);
 Log.LogInfo("Ping ip {0} isDone {1} time {2}", ping.ip, ping.isDone, ping.time);
+```
+
+
+
+### Texture2D
+
+用来处理texture纹理，
+
+`blackTexture` 和 `whiteTexture`
+
+是Texture2D的静态属性，生成一个纯白/纯黑的texture资源
+
+`format` 和 `isReadable`
+
+两个重要的属性，format是texture的格式，只读不可修改，isReadable在资源导入的时候可以设置，代码生成的必然为True，在调用Texture2D的大部分方法时，需要这个属性为true。
+
+```c#
+// 构造方法, 后面三个参数选填
+public Texture2D(int width, int height, TextureFormat format, bool mipChain, bool linear);
+```
+
+`GetPixel` `GetPixelBilinear` `GetPixels` `GetPixels32` `GetRawTextureData`
+
+```c#
+// 获取单个点的Color值
+public Color GetPixel(int x, int y);
+// 获取单个点（适配UV的）的Color值
+public Color GetPixelBilinear(int x, int y);
+// 获取整个texture的Color值，获取某块区域的Color值
+public Color[] GetPixels(int miplevel);
+public Color[] GetPixels(int x, int y, int blockWidth, int blockHeight, int miplevel);
+// 获取Color32格式的返回值
+public Color32[] GetPixels32(int miplevel);
+// 获取rawdata的返回值
+public NativeArray<T> GetRawTextureData();
+```
+
+`SetPixel` `SetPixels` `SetPixels32`
+
+```c#
+// 设置单点的值
+public void SetPixel(int x, int y, Color color);
+// 设置整个texture或者区域的Color值, SetPixels32用法相同
+public void SetPixels(Color[] colors, int miplevel);
+public void SetPixels(int x, int y, int blockWidth, int blockHeight, Color[] colors, int miplevel);
+
+```
+
+`Apply`
+
+使所有Set操作生效，一般情况下，在所有Set完成后再调用Apply，因为这个操作代价很大，尽量少调用。
+
+```c#
+public void Apply(bool updateMipmaps = true, bool makeNoLongerReadable = false);
+// 参数updateMipMaps是否更新mipmaps， makeNoLongerReadable如果为true，apply之后texture的系统内存拷贝会释放。
+```
+
+`Compress`
+
+压缩texture使用
+
+`LoadRawTextureData`
+
+使用rawdata填充texture，填充数据量必须和texture的宽、高、格式、mipmapcout相匹配，否则会报错。
+
+```c#
+public void LoadRawTextureData(byte[] data);
+public void LoadRawTextureData(NativeArray<T> data);
+public void LoadRawTextureData(IntPtr data, int size);
+```
+
+`ReadPixels`
+
+用于读取屏幕一片区域的pixel到texture中，可以用于截屏处理，一般要求texture格式为rgba32，argb32或者rgb24
+
+```c#
+public void ReadPixels(Rect source, int destX, int destY, bool recalculateMipMaps);
+```
+
+`Resize`
+
+重新调整texture的大小，和构造方式类似。
+
+`PackTextures`
+
+打包多个texture生成一个atlas。
+
+```c#
+// 特别需要注意的是，padding不能用1，会报错。网上别人也有提到，直接程序崩溃。应该是有bug
+public Rect[] PackTextures(Texture2D[] textures, int padding, int maxAtlasSize, bool makeNoLongerReadable);
+```
+
+
+
+### Time
+
+<font color=red>搞不了，Time.time一直是错的，和真实时间不一致，不晓得怎么回事</font>
+
+```ini
+Time.captureFramerate=设置游戏帧率，不考虑真实时间
+Time.deltaTime=完成最后一帧所使用的时间
+Time.fixedDeltaTime=FixedUpdate的刷新帧率，物理系统或者其他的。
+Time.fixedTime=游戏开始至今的时间，截止至最后一个FixedUpdate调用。
+Time.fixedUnscaledDeltaTime=timescale-independent的最后一帧使用的时间
+Time.time=游戏开始至今所使用的时间
+
+
 ```
 

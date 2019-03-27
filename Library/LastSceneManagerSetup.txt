@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/UnityScript/UnityEngine/Class/Ping/New Scene.unity
+- path: Assets/UnityScript/UnityEngine/Class/Time/New Scene.unity
   isLoaded: 1
   isActive: 1

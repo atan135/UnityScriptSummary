@@ -62,6 +62,10 @@
      <Compile Include="Assets\UnityScript\UnityEngine\Class\Hash128\TestHash128.cs" />
      <Compile Include="Assets\UnityScript\UnityEngine\Class\Input\InputAccelaration.cs" />
      <Compile Include="Assets\UnityScript\UnityEngine\Class\Ping\TestPing.cs" />
+     <Compile Include="Assets\UnityScript\UnityEngine\Class\Texture2D\TestTexture2D.cs" />
+     <Compile Include="Assets\UnityScript\UnityEngine\Class\Texture2D\TestTexture2DRead.cs" />
+     <Compile Include="Assets\UnityScript\UnityEngine\Class\Time\TestTime.cs" />
+     <Compile Include="Assets\UnityScript\UnityEngine\Class\Time\TestTimeDeltaTime.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>E:/unity project/UnityScriptSummary/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
