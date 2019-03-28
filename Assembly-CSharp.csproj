@@ -54,6 +54,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Log.cs" />
+     <Compile Include="Assets\UnityScript\UnityEngine\Class\Camera\TestCamera.cs" />
+     <Compile Include="Assets\UnityScript\UnityEngine\Class\Camera\TestCameraPostRender.cs" />
+     <Compile Include="Assets\UnityScript\UnityEngine\Class\Camera\TestCameraRay.cs" />
+     <Compile Include="Assets\UnityScript\UnityEngine\Class\Camera\TestCameraRender.cs" />
+     <Compile Include="Assets\UnityScript\UnityEngine\Class\Camera\TestCameraRenderTexture.cs" />
      <Compile Include="Assets\UnityScript\UnityEngine\Class\Debug\DebugAssert.cs" />
      <Compile Include="Assets\UnityScript\UnityEngine\Class\Debug\DebugBuildExample.cs" />
      <Compile Include="Assets\UnityScript\UnityEngine\Class\Debug\DebugDrawLine.cs" />
@@ -66,6 +71,7 @@
      <Compile Include="Assets\UnityScript\UnityEngine\Class\Texture2D\TestTexture2DRead.cs" />
      <Compile Include="Assets\UnityScript\UnityEngine\Class\Time\TestTime.cs" />
      <Compile Include="Assets\UnityScript\UnityEngine\Class\Time\TestTimeDeltaTime.cs" />
+     <Compile Include="Assets\UnityScript\UnityEngine\Class\Time\TestTimeScale.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>E:/unity project/UnityScriptSummary/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

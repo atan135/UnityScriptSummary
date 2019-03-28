@@ -5,6 +5,7 @@ Summary the unity script usaged
 
 ## UnityEngine
 
+* [Camera](#Camera)
 * [Debug](#Debug)
 * [Hash128](#Hash128)
 * [Input](#Input)
@@ -77,6 +78,20 @@ Summary the unity script usaged
 
 
 
+
+### Camera
+
+静态属性：
+
+```ini
+allCameras = 返回当前场景中所有enabled camera
+allCamerasCount = 返回allCameras的数量
+current = 当前正在渲染的摄像机，一般用不上。
+main = 第一个enabled名字为"Main Camera"的摄像机
+onPostRender = 任意一个摄像机完成渲染的事件
+onPreCull = 任意一个摄像机开始culling的事件
+onPreRender = 任意一个摄像机开始渲染的事件
+```
 
 
 
@@ -290,7 +305,9 @@ public Rect[] PackTextures(Texture2D[] textures, int padding, int maxAtlasSize, 
 
 ### Time
 
-<font color=red>搞不了，Time.time一直是错的，和真实时间不一致，不晓得怎么回事</font>
+<s>搞不了，Time.time一直是错的，和真实时间不一致，不晓得怎么回事</s>
+
+出错原因是设置了captureFramerate，通过Time.captureFramerate = 0，可以归位。否则游戏时间相当于captureFramerate / 真实游戏帧率
 
 ```ini
 Time.captureFramerate=设置游戏帧率，不考虑真实时间
@@ -299,7 +316,11 @@ Time.fixedDeltaTime=FixedUpdate的刷新帧率，物理系统或者其他的。
 Time.fixedTime=游戏开始至今的时间，截止至最后一个FixedUpdate调用。
 Time.fixedUnscaledDeltaTime=timescale-independent的最后一帧使用的时间
 Time.time=游戏开始至今所使用的时间
-
-
+Time.unscaledTime=游戏开始至今的真实时间
+Time.readtimeSinceStartup=游戏开始至今的真实时间，即使暂停也会增加
+Time.frameCount=真实总帧数
+Time.maximumDeltaTime=每帧最大时长，物理系统和其他fixedupdate的行为只会在这个时间段执行
+Time.maximumParticleDeltaTime=粒子系统更新的最大每帧时长，如果超过这个值了，update会拆分为多帧执行
+Time.smoothDeltaTime=加权平滑的deltaTime
 ```
 
