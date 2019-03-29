@@ -55,10 +55,14 @@
   <ItemGroup>
      <Compile Include="Assets\Log.cs" />
      <Compile Include="Assets\UnityScript\UnityEngine\Class\Camera\TestCamera.cs" />
+     <Compile Include="Assets\UnityScript\UnityEngine\Class\Camera\TestCameraField.cs" />
      <Compile Include="Assets\UnityScript\UnityEngine\Class\Camera\TestCameraPostRender.cs" />
      <Compile Include="Assets\UnityScript\UnityEngine\Class\Camera\TestCameraRay.cs" />
      <Compile Include="Assets\UnityScript\UnityEngine\Class\Camera\TestCameraRender.cs" />
      <Compile Include="Assets\UnityScript\UnityEngine\Class\Camera\TestCameraRenderTexture.cs" />
+     <Compile Include="Assets\UnityScript\UnityEngine\Class\Camera\TestCullingMask.cs" />
+     <Compile Include="Assets\UnityScript\UnityEngine\Class\Camera\TestScreenToView.cs" />
+     <Compile Include="Assets\UnityScript\UnityEngine\Class\Camera\TestWordToCameraMatrix.cs" />
      <Compile Include="Assets\UnityScript\UnityEngine\Class\Debug\DebugAssert.cs" />
      <Compile Include="Assets\UnityScript\UnityEngine\Class\Debug\DebugBuildExample.cs" />
      <Compile Include="Assets\UnityScript\UnityEngine\Class\Debug\DebugDrawLine.cs" />
@@ -67,6 +71,7 @@
      <Compile Include="Assets\UnityScript\UnityEngine\Class\Hash128\TestHash128.cs" />
      <Compile Include="Assets\UnityScript\UnityEngine\Class\Input\InputAccelaration.cs" />
      <Compile Include="Assets\UnityScript\UnityEngine\Class\Ping\TestPing.cs" />
+     <Compile Include="Assets\UnityScript\UnityEngine\Class\Random\TestRandom.cs" />
      <Compile Include="Assets\UnityScript\UnityEngine\Class\Texture2D\TestTexture2D.cs" />
      <Compile Include="Assets\UnityScript\UnityEngine\Class\Texture2D\TestTexture2DRead.cs" />
      <Compile Include="Assets\UnityScript\UnityEngine\Class\Time\TestTime.cs" />

@@ -10,6 +10,7 @@ Summary the unity script usaged
 * [Hash128](#Hash128)
 * [Input](#Input)
 * [Ping](#Ping)
+* [Random](#Random)
 * [Texture2D](#Texture2D)
 * [Time](#Time)
 
@@ -93,7 +94,7 @@ onPreCull = 任意一个摄像机开始culling的事件
 onPreRender = 任意一个摄像机开始渲染的事件
 ```
 
-
+东西太多，有不少不懂的，先不整理进入，工程里面测试代码有一些。
 
 
 ### Debug
@@ -209,6 +210,25 @@ string hashStr = hs.ToString();
 Ping ping = new Ping(ip);
 while(!ping.isDone);
 Log.LogInfo("Ping ip {0} isDone {1} time {2}", ping.ip, ping.isDone, ping.time);
+```
+
+### Random
+
+UnityEngine自带的一个Random生成器，可用于生成一些特定的随机数结构。
+
+```ini
+Property:
+insideUnitCircle = 返回一个随vector2，表示一个半径1的圆内随机一点
+insideUnitSphere = 返回一个Vector3，表示一个半径1的球内随机一点
+onUnitSphere = 返回一个Vector3，表示要给半径1的球表面随机一点
+rotation = 返回一个Quaternion，表示随机的一个旋转
+rotationUniform = 返回一个Quaternion，表示要给随机的旋转，均匀分布
+state = 随机数生成器的当前状态，获取状态后在去range等方法生成一个值，是会相同
+value = 返回一个随机数，介于0.0-1.0之间，都是include的
+Static Method:
+ColorHSV = 返回要给随机的Color值，允许设置HSVA的min和max值
+InitState = 初始化随机数生成器，使用一个seed
+Range = 返回一个介于arg1，arg2的随机数，如果是int，为include-exclude，是float则为include-include
 ```
 
 
